@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Timeline } from "@/components/Timeline";
 import { withBasePath } from "@/lib/site";
 
@@ -15,15 +14,15 @@ export default function ResumePage() {
           highlights the public portfolio narrative without inventing unsupported metrics.
         </p>
         <div className="hero-actions">
-          <Link className="button primary" href={withBasePath("/downloads/iver-iverson-resume.pdf")}>
+          <a className="button primary" href={withBasePath("/downloads/iver-iverson-resume.pdf")}>
             PDF
-          </Link>
-          <Link className="button" href={withBasePath("/downloads/iver-iverson-resume.md")}>
+          </a>
+          <a className="button" href={withBasePath("/downloads/iver-iverson-resume.md")}>
             Markdown
-          </Link>
-          <Link className="button" href={withBasePath("/downloads/iver-iverson-resume.txt")}>
+          </a>
+          <a className="button" href={withBasePath("/downloads/iver-iverson-resume.txt")}>
             Text
-          </Link>
+          </a>
         </div>
       </section>
       <section className="section">

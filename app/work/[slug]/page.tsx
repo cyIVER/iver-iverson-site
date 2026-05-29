@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CaseDiagram } from "@/components/CaseDiagram";
 import { getCaseStudies, getCaseStudy, renderMarkdown } from "@/lib/content";
@@ -41,7 +40,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <aside className="sticky-panel">
           <strong>Supporting artifact</strong>
           <p>{item.artifact}</p>
-          <Link className="button" href={withBasePath(`/artifacts/${item.slug}.md`)}>Open artifact note</Link>
+          <a className="button" href={withBasePath(`/artifacts/${item.slug}.md`)}>Open artifact note</a>
           <div className="tag-list">
             {item.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}
           </div>
