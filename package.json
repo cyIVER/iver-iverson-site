@@ -1,0 +1,39 @@
+{
+  "name": "iver-iverson-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static authority portfolio for Iver Iverson, focused on AI-era cyber investigation.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "qa:links": "node scripts/check-links.mjs",
+    "qa:content": "node scripts/check-content.mjs",
+    "qa:secrets": "node scripts/check-public-safety.mjs",
+    "qa:browser": "playwright test",
+    "qa": "npm run lint && npm run typecheck && npm run qa:content && npm run build && npm run qa:links && npm run qa:secrets && npm run qa:browser"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "gray-matter": "^4.0.3",
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "unified": "^11.0.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.29",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "eslint": "^9.27.0",
+    "eslint-config-next": "^15.3.3",
+    "typescript": "^5.8.3"
+  }
+}

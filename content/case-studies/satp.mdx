@@ -1,0 +1,37 @@
+---
+title: "SATP - Sentinel Autonomous Triage Pipeline"
+deck: "PowerShell-based multi-agent Sentinel triage pipeline with verification KQL, DAIR correlation loops, and deterministic verdict policy."
+status: "Flagship / public summary"
+role: "System designer and implementation lead"
+category: "Incident triage"
+year: "2026"
+selected: true
+tags: ["Microsoft Sentinel", "PowerShell", "KQL", "DAIR", "CJCSM"]
+artifact: "Triage workflow and verdict ladder summary"
+diagram:
+  - "Incident: Sentinel incident, alerts, entities, and case state"
+  - "Correlation: specialist agents, DAIR loop, verification KQL, and policy overrides"
+  - "Brief: triage summary, verdict, classification, and follow-on artifacts"
+---
+
+## Problem
+
+Security triage fails when context, evidence queries, and final verdict logic are scattered. SATP was built to coordinate autonomous analysis while keeping the final outcome tied to deterministic policy and evidence.
+
+## Constraints
+
+- Azure REST and Log Analytics access needed to work without assuming optional CLI extensions.
+- The workflow had to record query artifacts, debug logs, and triage briefs.
+- Automation could recommend and structure, but it could not replace evidence-backed decision policy.
+
+## Approach
+
+SATP ingests Sentinel incidents, alerts, and entities, routes analysis to specialist agents, runs verification KQL against Log Analytics, and applies a DAIR loop across multiple correlation cycles. A verdict ladder normalizes true positive, benign positive, false positive, and requires-investigation outcomes.
+
+## Artifact And Proof
+
+The supporting artifact documents the case-state folder, verification query outputs, Markdown triage brief, debug logs, and MCD draft generation path for true-positive outcomes.
+
+## Outcomes And Status
+
+SATP demonstrates how autonomous triage can be made auditable: every run produces artifacts, every verdict has a policy path, and uncertain cases retain a requires-investigation status instead of being forced into confidence theater.

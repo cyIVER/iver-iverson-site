@@ -1,0 +1,19 @@
+---
+title: "Threat hunting needs reviewable agent loops"
+deck: "A field note on using agents to structure hunts without replacing analyst accountability."
+date: "2026-05-28"
+category: "Threat hunting"
+tags: ["Threat hunting", "Agents", "Review gates"]
+---
+
+Agentic hunt workflows are useful when they make the investigation state easier to inspect. They become risky when they turn unclear evidence into polished language too early.
+
+The practical pattern is a reviewable loop:
+
+- define the hunt focus
+- map likely behavior to ATT&CK and data sources
+- generate candidate analytics
+- run only reviewed queries against approved telemetry
+- preserve findings, uncertainty, and next actions as artifacts
+
+The agent should improve the shape of the work. It should not become the authority for the conclusion.

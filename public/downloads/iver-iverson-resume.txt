@@ -1,0 +1,13 @@
+Iver Iverson
+AI-era cyber investigator
+
+Selected work:
+- Hunter-7: agentic threat-hunting orchestration for Sentinel, Azure Cloud Shell, GitLab knowledge, ATT&CK mapping, and portable Codex/Gemini workflows.
+- SATP: autonomous Sentinel triage with verification KQL, DAIR correlation loops, deterministic verdict policy, and CJCSM classification.
+- Codex MCP Architecture: reproducible local agent platform with Dockerized MCP bridges, skill catalogs, knowledge graph resources, dashboards, and CI validation.
+- file2md: privacy-first Python CLI for converting documents and web material into AI-ready Markdown.
+- DCO 450: cyber defense hunt analyst course platform with range automation and Sentinel telemetry.
+- DCO 550: advanced adversary hunting and malware reverse engineering capstone platform.
+
+Technical areas:
+Microsoft Sentinel, KQL, Azure, PowerShell, Python, FastAPI, SQLite, ChromaDB, Docker, GitLab CI/CD, GitHub Actions, Terraform, Packer, Astro, React, MCP, Graphify, MITRE ATT&CK.

@@ -1,0 +1,17 @@
+name: Self Hosted Runner Smoke
+
+on:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: [self-hosted, docker-desktop, ephemeral]
+    steps:
+      - name: Runner identity
+        run: |
+          printf 'runner=%s\n' "$RUNNER_NAME"
+          printf 'os=%s\n' "$RUNNER_OS"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Node check
+        run: node --version || true

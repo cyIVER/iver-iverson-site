@@ -1,0 +1,37 @@
+---
+title: "file2md"
+deck: "Privacy-first Python CLI for converting webpages, PDFs, Office files, images, emails, and directories into AI-ready Markdown."
+status: "Flagship / public project"
+role: "Creator and maintainer"
+category: "Local-first AI tooling"
+year: "2026"
+selected: true
+tags: ["Python", "Markdown", "OCR", "RAG", "Local-first"]
+artifact: "CLI pipeline and dependency boundary summary"
+diagram:
+  - "Detect: URL, file, folder, document type, or email export"
+  - "Extract: local document conversion, optional OCR, web extraction, and fallbacks"
+  - "Package: clean Markdown for LLM and RAG workflows"
+---
+
+## Problem
+
+LLM and RAG workflows need clean source material, but documents arrive as webpages, PDFs, Office files, images, email exports, and nested folders. file2md provides a local-first conversion path instead of pushing private material to remote services by default.
+
+## Constraints
+
+- Heavy document and OCR dependencies had to degrade gracefully.
+- Remote processing had to remain explicit opt-in.
+- The CLI needed to work on mixed inputs without making users pre-classify every file.
+
+## Approach
+
+file2md routes inputs through detection, extraction, cleanup, and output formatting. It supports web extraction through Crawl4AI/Playwright and article fallbacks, document extraction through local libraries, OCR when needed, and optional LLM-enhanced extraction when configured.
+
+## Artifact And Proof
+
+The artifact summary explains the input router, local-first defaults, optional remote enhancement, and defensive dependency loading model.
+
+## Outcomes And Status
+
+file2md is a practical bridge between messy source material and structured Markdown. It supports the broader portfolio thesis by giving agent workflows better inputs without normalizing unnecessary data exposure.

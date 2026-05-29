@@ -1,0 +1,37 @@
+---
+title: "Codex MCP Architecture"
+deck: "Reproducible MCP platform for local Codex tooling, Dockerized stdio bridges, skill catalogs, knowledge graph services, and dashboard artifacts."
+status: "Flagship / public summary"
+role: "Architecture owner"
+category: "Agent infrastructure"
+year: "2026"
+selected: true
+tags: ["MCP", "Docker", "Codex", "Graphify", "CI"]
+artifact: "Manifest validation and dashboard build summary"
+diagram:
+  - "Manifests: server definitions, skill catalogs, and config rendering inputs"
+  - "Runtime: Docker-backed stdio bridges and native filesystem tools"
+  - "Evidence: dashboard, smoke checks, registries, and generated docs"
+---
+
+## Problem
+
+Agent tooling becomes fragile when servers, skills, memory, and local scripts are configured by hand. The Codex MCP Architecture project makes the local agent platform reproducible, testable, and explainable.
+
+## Constraints
+
+- Docker-backed MCP bridges needed clear runtime boundaries and mount paths.
+- Native tools that require host filesystem access needed to stay native rather than being forced into containers.
+- CI had to validate manifests, generated configs, dashboard output, and container behavior.
+
+## Approach
+
+The architecture uses repo-owned manifests and renderers to generate Codex configuration, build skill bundles, register project dashboards, and smoke-test MCP containers. It also defines portable `skills_mcp` and `graphify_kb` services for skill indexing and knowledge retrieval.
+
+## Artifact And Proof
+
+The supporting artifact summarizes the validation pipeline: manifest checks, rendered config review, installation dry-runs, dashboard build, Playwright smoke checks, Docker image builds, and GitLab Pages publishing.
+
+## Outcomes And Status
+
+The project is a platform layer for repeatable agent operations. Its practical value is not novelty; it is reducing hidden configuration drift in a local multi-tool agent environment.
