@@ -23,6 +23,35 @@ test.describe("static portfolio", () => {
     await expect(page.getByRole("link", { name: /Hunter-7/ })).toHaveCount(0);
   });
 
+  test("homepage hero title and field map do not overlap", async ({ page }) => {
+    await page.goto("/");
+
+    const layout = await page.evaluate(() => {
+      const title = document.querySelector("h1")?.getBoundingClientRect();
+      const fieldMap = document.querySelector(".dossier")?.getBoundingClientRect();
+
+      if (!title || !fieldMap) {
+        throw new Error("Homepage hero title or field map was not found.");
+      }
+
+      const overlaps = !(
+        title.right <= fieldMap.left ||
+        title.left >= fieldMap.right ||
+        title.bottom <= fieldMap.top ||
+        title.top >= fieldMap.bottom
+      );
+
+      return {
+        overlaps,
+        documentWidth: document.documentElement.scrollWidth,
+        viewportWidth: window.innerWidth
+      };
+    });
+
+    expect(layout.overlaps).toBe(false);
+    expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewportWidth);
+  });
+
   test("resume timeline expands and downloads are linked", async ({ page }) => {
     await page.goto("/resume");
     await expect(page.getByRole("link", { name: "PDF" })).toHaveAttribute("href", /iver-iverson-resume\.pdf/);

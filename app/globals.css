@@ -153,9 +153,9 @@ select {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
   gap: 38px;
-  align-items: stretch;
+  align-items: start;
   min-height: calc(100dvh - 96px);
   padding-bottom: 42px;
 }
@@ -178,8 +178,8 @@ h3 {
 
 h1 {
   margin: 18px 0 18px;
-  max-width: 780px;
-  font-size: clamp(3.4rem, 8.2vw, 7.8rem);
+  max-width: 640px;
+  font-size: clamp(3.4rem, 6.4vw, 6.1rem);
 }
 
 h2 {
@@ -212,6 +212,7 @@ p {
 }
 
 .dossier {
+  align-self: start;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--panel);
@@ -499,8 +500,13 @@ p {
   font-size: 0.9rem;
 }
 
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 900px) {
-  .hero,
   .case-layout {
     grid-template-columns: 1fr;
   }
