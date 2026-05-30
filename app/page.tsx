@@ -3,7 +3,7 @@ import { CaseCard } from "@/components/CaseCard";
 import { getCaseStudies, getWriting } from "@/lib/content";
 
 export default function Home() {
-  const cases = getCaseStudies().filter((item) => item.selected).slice(0, 6);
+  const cases = getCaseStudies().filter((item) => item.selected).slice(0, 7);
   const writing = getWriting().slice(0, 3);
 
   return (
@@ -13,15 +13,16 @@ export default function Home() {
           <div className="eyebrow">Authority site / AI-era cyber investigator</div>
           <h1>Investigation systems for the agentic security era.</h1>
           <p className="lede">
-            I design cyber workflows where human judgment, telemetry, detection logic, and AI agents
-            meet: threat hunting, Sentinel triage, MCP architecture, and cyber range education.
+            I design cyber workflows where human judgment, telemetry, detection logic, untrusted AI
+            artifacts, and AI agents meet: threat hunting, Sentinel triage, MCP architecture,
+            AI supply-chain airlocks, and cyber range education.
           </p>
           <div className="hero-actions">
             <Link className="button primary" href="/work">Review selected work</Link>
             <Link className="button" href="/resume">Open resume dossier</Link>
           </div>
           <div className="metric-row">
-            <div className="metric"><strong>6</strong><span>flagship case studies</span></div>
+            <div className="metric"><strong>7</strong><span>flagship case studies</span></div>
             <div className="metric"><strong>Static</strong><span>GitHub Pages export</span></div>
             <div className="metric"><strong>Agentic</strong><span>hunt, triage, and MCP systems</span></div>
           </div>

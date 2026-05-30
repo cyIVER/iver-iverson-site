@@ -5,7 +5,7 @@ import matter from "gray-matter";
 const root = process.cwd();
 const caseDir = path.join(root, "content", "case-studies");
 const required = ["Problem", "Constraints", "Approach", "Artifact And Proof", "Outcomes And Status"];
-const flagship = ["hunter-7", "satp", "codex-mcp-architecture", "file2md", "dco-450", "dco-550"];
+const flagship = ["hunter-7", "satp", "tempest", "codex-mcp-architecture", "file2md", "dco-450", "dco-550"];
 
 let failures = 0;
 for (const slug of flagship) {

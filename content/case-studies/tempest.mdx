@@ -1,0 +1,41 @@
+---
+title: "TEMPEST - AI Supply-Chain Airlock"
+deck: "Go CLI for safely ingesting, scanning, detonating, attesting, and promoting untrusted code skills and ML model artifacts in ephemeral secure testbeds."
+status: "Flagship / private repo"
+role: "System designer and implementation lead"
+category: "AI supply-chain security"
+year: "2026"
+selected: true
+tags: ["Go", "AI supply chain", "tmpfs", "Policy gates", "CI"]
+artifact: "Public-safe security model and runtime constraints summary"
+diagram:
+  - "Ingest: untrusted skill, model, or archive source enters an ephemeral acquisition path"
+  - "Evaluate: scanner, detonation, policy validation, redaction, and attestation workflows run without persistent payload writes"
+  - "Promote: only policy-approved assets and capped evidence move into persistent state"
+---
+
+## Problem
+
+AI teams increasingly exchange code skills, model artifacts, archives, and automation bundles that can become supply-chain risk before anyone has decided they are trustworthy. TEMPEST was built to create an airlock for those assets: ingest them, evaluate them, attest what happened, and promote only what passes policy.
+
+## Constraints
+
+- Untrusted asset payload bytes, extracted payloads, scanner workdirs, and detonation copies must not touch persistent storage before promotion.
+- Scanner and detonation containers must not receive the Docker socket.
+- Promotion needs a policy file and must fail closed when policy is missing or too permissive.
+- Evidence may persist, but raw payload-derived data must remain capped, redacted, and separated from promoted assets.
+- The workflow needed to be host-neutral enough to run with XDG config/state paths and tmpfs-backed runtime locations.
+
+## Approach
+
+TEMPEST is a standalone Go CLI with commands for ingest, scan, detonate, attest, promote, policy validation, certificate trust capture, and report review. The CLI owns orchestration and the Docker runtime contract while scanner and detonation work stay isolated. Policy validation pins scanners by immutable digest, blocks unsafe archive behavior, and only permits overrides that make execution stricter unless signed policy explicitly allows relaxation.
+
+The project also preserves transitional shell helpers while moving the core workflow into testable Go packages: command parsing, runtime planning, tmpfs sizing, archive traversal safety, scanner finding normalization, attestation payload generation, evidence persistence, and certificate pin storage.
+
+## Artifact And Proof
+
+The supporting artifact summarizes the public-safe security model: tmpfs-only pre-promotion handling, fail-closed policy behavior, Docker socket boundaries, scanner redaction, evidence persistence, and CI validation. The private repository includes unit tests for tmpfs planning, policy strictness, archive safety, scanner normalization, redaction, and promotion blocking.
+
+## Outcomes And Status
+
+TEMPEST demonstrates a practical pattern for AI supply-chain safety: treat untrusted skills and model artifacts as payloads that must earn persistence. The current implementation has a Go CLI foundation, command-level help, policy validation, CI jobs for formatting, shell syntax, unit tests, build, and CLI smoke checks, and a private GitHub mirror for ongoing development.
